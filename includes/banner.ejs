@@ -1,0 +1,70 @@
+<section
+  class="hero-banner text-center text-light d-flex align-items-center justify-content-center"
+>
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3">Welcome to Confessa 💬</h1>
+    <p class="lead mb-4">
+      Share your thoughts freely and anonymously.<br />
+      Your voice matters, and your identity stays hidden.
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* 🌟 Taller height for desktop */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+  }
+
+  /* Background image layer */
+  .hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("../images/banner.jpg") center center / cover no-repeat;
+    filter: blur(0.5px);
+    transform: scale(1.05); /* ensures no blank edges after blur */
+    z-index: 1;
+  }
+
+  /* Content layer */
+  .hero-banner .container {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .hero-banner {
+      height: 45vh; /* tablets */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-banner {
+      height: 40vh;
+    }
+
+    .hero-banner h1 {
+      font-size: 1.75rem;
+    }
+
+    .hero-banner p.lead {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero-banner {
+      height: 30vh;
+    }
+  }
+</style>

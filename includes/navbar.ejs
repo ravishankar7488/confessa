@@ -1,0 +1,84 @@
+<!-- Navbar (sticky on top) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-2">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand me-2" href="/">Confessa</a>
+
+    <!-- Search form (always visible) -->
+    <form
+      class="d-flex me-auto search-form"
+      action="/search"
+      method="POST"
+      style="max-width: 250px"
+    >
+      <input
+        class="form-control form-control-sm me-2"
+        type="search"
+        name="query"
+        placeholder="Search..."
+        aria-label="Search"
+        required
+      />
+      <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
+    </form>
+
+    <!-- Toggler for other nav items -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">All Confessions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/create">Create ➕</a>
+        </li>
+        <% if (user === "Lucifer") { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/newconfessions">New Confessions</a>
+        </li>
+        <% } %>
+      </ul>
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto">
+        <% if (user !== "Lucifer") { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/adminlogin">Admin Login</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Custom styles -->
+<style>
+  /* Slightly increase navbar height */
+  .navbar {
+    min-height: 70px;
+  }
+
+  /* Add left margin to search box in mobile view */
+  @media (max-width: 576px) {
+    .search-form {
+      margin-left: 10px;
+    }
+  }
+</style>

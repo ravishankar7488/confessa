@@ -1,0 +1,59 @@
+<% layout("../layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4 fw-bold">📝 Create a Confession</h2>
+
+  <!-- Admin Message -->
+  <div class="alert alert-info text-center fw-medium mb-4">
+    💌 Write your confession freely. Your privacy is our top priority — even the
+    admin cannot know who posted a confession. Feel safe to share your thoughts
+    openly.
+  </div>
+
+  <form action="/create" method="POST" class="needs-validation" novalidate>
+    <!-- Confession Text Field -->
+    <div class="mb-4">
+      <textarea
+        class="form-control large-text"
+        id="confessionText"
+        name="text"
+        rows="8"
+        minlength="5"
+        maxlength="400"
+        required
+        style="font-size: 18px; resize: none"
+        placeholder="Write your confession here..."
+      ></textarea>
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">
+        Please enter between 5 and 400 characters.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn alert alert-info w-100 btn-lg fw-semibold">
+      Submit Confession
+    </button>
+  </form>
+</div>
+
+<!-- Bootstrap Form Validation Script -->
+<script>
+  (function () {
+    "use strict";
+    const forms = document.querySelectorAll(".needs-validation");
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>

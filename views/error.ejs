@@ -1,0 +1,23 @@
+<% layout("../layouts/boilerplate") %>
+
+<div
+  class="d-flex flex-column align-items-center justify-content-center text-center"
+  style="height: 80vh"
+>
+  <!-- Illustration from Unsplash -->
+  <img
+    src="../images/error.png"
+    alt="Page Not Found"
+    class="img-fluid rounded mb-4 shadow-sm"
+    style="max-width: 300px"
+  />
+
+  <!-- Error Status -->
+  <h1 class="display-1 fw-bold text-danger mb-3"><%= status %></h1>
+
+  <!-- Error Message -->
+  <h3 class="fw-semibold mb-3"><%= message %></h3>
+
+  <!-- Back to Home Button -->
+  <a href="/" class="btn btn-danger btn-lg mt-3"> Go Back </a>
+</div>
