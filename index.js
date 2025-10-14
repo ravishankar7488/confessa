@@ -46,7 +46,7 @@ app.use("/admin",(req,res,next)=>{
 })
 
 app.get("/", wrapAsync(async(req,res)=>{
-  let Posts=await Post.find({});
+let Posts = await Post.find({}).sort({ createdAt: -1 });
   user=req.signedCookies.user;
   res.render("index.ejs",{Posts,user, query: "notavailable"})
 }))
@@ -108,11 +108,12 @@ app.get("/admin/newconfessions",wrapAsync( async(req,res)=>{
 
 app.post("/search", async(req,res)=>{
   let {query}=req.body;
-  let Posts=await Post.find({
+let Posts = await Post.find({
   $or: [
     { text: { $regex: query, $options: 'i' } },
   ]
-})
+}).sort({ createdAt: -1 });
+
 user=req.signedCookies.user;
 res.render("index.ejs", {Posts, user, query})
 })
