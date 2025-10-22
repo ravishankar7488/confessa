@@ -34,7 +34,7 @@ To run **Confessa** locally on your system:
 
 ```bash
 # Clone this repository
-git clone https://github.com/RaviShankar-coder/Confessa.git
+git clone https://github.com/ravishankar7488/confessa
 
 # Navigate into the project directory
 cd Confessa
